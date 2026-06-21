@@ -1,0 +1,747 @@
+/* ==========================================================================
+   IMPORTS & FONTS
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Infant:ital,wght@0,300;0,400;1,300&family=Pinyon+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
+
+/* ==========================================================================
+   GLOBAL RESET
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #F8F5F0;
+  font-family: 'Inter', sans-serif;
+  color: #4e443c;
+}
+
+/* ==========================================================================
+   GLOBAL LUXURY HEADERS (SCHEDULE, LOCATION, GALLERY, THEME)
+   ========================================================================== */
+.schedule h2, 
+.location h2, 
+.gallery h2, 
+.wedding-theme h3 {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 2rem !important;          
+  font-weight: 400 !important;          
+  letter-spacing: 6px !important;       
+  text-transform: uppercase !important; 
+  color: #7A5C2E !important;            
+  margin-bottom: 40px !important;       
+  text-align: center !important;
+}
+
+/* ==========================================================================
+   SECTION: HERO SCREEN
+   ========================================================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(to bottom, rgba(255,253,249,0.35), rgba(255,253,249,0.65)),
+              url('https://i.postimg.cc/NfXBtj79/background3.jpg') center/cover no-repeat;
+}
+
+.hero-content {
+  max-width: 1100px;
+  width: 100%;
+  padding-top: 80px;
+}
+
+.hero-content .names {
+font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 700 !important;   /* ตัวหนา */
+  font-style: italic !important;  /* ตัวเอียง */
+  
+  font-size: 5rem !important;     /* ขนาดใหญ่เต็มตา (ในคอม) */
+  letter-spacing: 10px !important; /* ระยะห่างกำลังดี ไม่ห่างเกินไปจนหลุดเส้นเอียง */
+  color: #F5EFEB !important;            
+  text-shadow: 0 4px 15px rgba(122, 92, 46, 0.45), 0 2px 5px rgba(0, 0, 0, 0.35) !important; 
+  text-transform: uppercase !important; 
+  margin-bottom: 20px !important;
+}
+
+.hero-content .date {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;          
+  letter-spacing: 6px !important;       
+  color: #5C401B !important;            
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8), 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+  text-transform: none !important;
+}
+
+.divider {
+  width: 80px;
+  height: 1px;
+  background: #CBB892;
+  margin: 35px auto 60px;
+}
+
+/* ==========================================================================
+   SECTION: COUPLE PROFILE
+   ========================================================================== */
+.couple {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+  margin-bottom: 90px;
+  flex-wrap: nowrap;
+}
+
+.person {
+  text-align: center;
+  width: 220px;
+}
+
+.person img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #d4b483;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+}
+
+.eng-name {
+  font-family: 'Cormorant Garamond', serif !important; /* เปลี่ยนมาใช้ฟอนต์เดียวกับประโยคซึ้งๆ */
+  font-style: italic !important;  /* ทำเป็นตัวเอียงเพิ่มความลักชู */
+  font-weight: 600 !important;   /* ความหนาระดับกำลังดี อ่านง่าย ชัดเจน */
+  
+  font-size: 1.35rem !important;  /* ขยายขนาดให้ทางแขกผู้ใหญ่卧อ่านได้สบายตาขึ้น */
+  letter-spacing: 1px !important;  /* เว้นช่องไฟนิดๆ ไม่ให้ตัวอักษรเบียดกันจนอ่านยาก */
+  color: var(--text-color-primary) !important; /* ใช้สีหลักของเว็บ */
+  margin-bottom: 5px !important;  /* เว้นระยะห่างก่อนถึงชื่อภาษาไทยด้านล่าง */
+}
+
+.th-name {
+  font-family: 'Poppins', sans-serif !important;
+  font-style: italic !important;  /* ทำเป็นตัวเอียงเพิ่มความลักชู */
+  font-size: 0.85rem !important;  /* ปรับให้ตัวเล็กกว่าชื่ออังกฤษนิดนึง */
+  font-weight: 300 !important;   /* ใช้ตัวบางเพื่อให้ดูมินิมอล */
+  opacity: 0.75 !important;      /* ปรับให้จางลงนิดนึงเพื่อความแพง */
+  letter-spacing: 0.5px !important;
+}
+
+.heart {
+  font-size: 50px;
+  color: #A67C52;
+  opacity: 0.7;
+  transform: translateY(-25px);
+  letter-spacing: 3px;
+}
+
+/* ==========================================================================
+   SECTION: COUNTDOWN
+   ========================================================================== */
+.countdown {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  margin: 60px 0 80px;
+}
+
+.countdown::before, .countdown::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d8c3a5, transparent);
+}
+
+.countdown::before { top: -25px; }
+.countdown::after { bottom: -30px; }
+
+.time-box {
+  text-align: center;
+  width: 90px;
+}
+
+.time-box span {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 2px;
+  color: #7A5C2E;
+}
+
+.time-box small {
+  display: block;
+  margin-top: 8px;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #8f8276;
+}
+
+/* แต่งคำโปรยด้านบนสุด */
+.hero-tagline {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 0.85rem !important;
+  font-weight: 300 !important;
+  letter-spacing: 5px !important; /* ถ่างตัวอักษรให้ดูหรูมินิมอล */
+  color: var(--text-color-primary) !important; /* สีขาวนวลโปร่งแสงเล็กน้อย */
+  margin-top: -15px !important;    /* ดันตัวเองขึ้นไปด้านบนเล็กน้อย */
+  margin-bottom: 50px !important; /* [เพิ่มระยะตรงนี้] สั่งผลักตัวชื่อ Tae & Nan ลงไปด้านล่าง */
+  display: block !important;
+  text-transform: uppercase !important;
+}
+
+/* แต่งประโยคซึ้งๆ ด้านล่างเค้าดาวน์ */
+.wedding-quote {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-style: italic !important;
+  font-size: 1.3rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 2px !important;
+  color: var(--text-color-primary) !important;
+  margin-top: 40px !important; /* เว้นระยะห่างจากตัวเค้าดาวน์ลงมาหน่อย */
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   SECTION: SCHEDULE & TIMELINE
+   ========================================================================== */
+.schedule {
+  padding: 50px 20px 30px !important;
+  text-align: center;
+  background: #F8F5F0;
+}
+
+.schedule-banner {
+  max-width: 1400px;
+  margin: 0 auto 80px;
+  overflow: hidden;
+  animation: fadeOnScroll linear forwards;
+  animation-timeline: view();
+  animation-range: entry 10% cover 40%;
+}
+
+.schedule-banner img {
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+  display: block;
+}
+
+@keyframes fadeOnScroll {
+  from { opacity: 0; transform: translateY(60px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 65px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #D8C3A5;
+  z-index: 0;
+}
+
+.event {
+  position: relative;
+  width: 160px;
+  z-index: 1;
+}
+
+.icon-img {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.08));
+  transition: transform .3s ease, filter .3s ease;
+}
+
+.event:hover .icon-img img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.12));
+}
+
+.time {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: #7A5C2E;
+}
+
+.title {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #8f8276;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   SECTION: WEDDING THEME COLOURS
+   ========================================================================== */
+.wedding-theme {
+  text-align: center;
+  padding: 30px 20px 40px !important;
+  background-color: transparent;
+}
+
+.wedding-theme h3 {
+  font-size: 1.6rem !important;
+  letter-spacing: 5px !important;
+}
+
+.color-palette {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+}
+
+.color-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.color-item .circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.color-item p {
+  font-family: inherit;
+  font-style: italic;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #8A7355;
+  letter-spacing: 1px;
+  margin: 5px 0 0 0;
+}
+
+.color-cream { background-color: #F5EFEB; }
+.color-gold  { background-color: #D4AF37; }
+.color-brown { background-color: #BCA385; }
+.color-mocca { background-color: #5C4431; }
+
+/* ==========================================================================
+   SECTION: LOCATION & MAP
+   ========================================================================== */
+.location {
+  padding: 50px 20px 120px !important;
+  background: #FFFFFF;
+  text-align: center;
+}
+
+iframe {
+  width: 100%;
+  max-width: 900px;
+  height: 450px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+  margin-top: 25px !important;
+}
+
+.map-btn-container {
+  margin-top: 30px;
+}
+
+.map-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #7A5C2E;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 24px rgba(122, 92, 46, 0.2);
+  transition: all 0.3s ease;
+}
+
+.map-btn:hover {
+  background: #A67C52;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(122, 92, 46, 0.3);
+}
+
+/* ==========================================================================
+   SECTION: GALLERY & LIGHTBOX
+   ========================================================================== */
+.gallery {
+  padding: 50px 20px 120px !important;
+  background: #F8F5F0;
+  text-align: center;
+}
+
+.gallery-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 20px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: .4s;
+  cursor: pointer;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.02);
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 45px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+/* ==========================================================================
+   SCROLL REVEAL UTILITY
+   ========================================================================== */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUpSafe 1.2s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
+}
+
+@keyframes fadeInUpSafe {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   SECTION: FOOTER
+   ========================================================================== */
+.wedding-footer {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #FAF6F0;
+  border-top: 1px solid #EAE3D2;
+}
+
+.wedding-footer p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #8A7355;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT (TABLETS / PC SMALL JOS)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .title { font-size: 13px; }
+  .names { font-size: 3rem; }
+  .couple { flex-wrap: wrap; gap: 60px; }
+  .countdown { gap: 40px; }
+  .time-box span { font-size: 32px; }
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT (IPHONE & MOBILE SMARTPHONES)
+   ========================================================================== */
+@media screen and (max-width: 480px) {
+  
+  /* 1. Hero Fonts */
+  .hero-content .names, .hero-title, h1[style*="font-size: 5rem"] {
+    font-size: 3.2rem !important;      
+    letter-spacing: 6px !important;    
+    line-height: 1.2 !important;
+  }
+  .hero-content .date {
+    font-size: 1.1rem !important;
+    letter-spacing: 4px !important;
+  }
+
+  /* 2. Standard Responsive Headers & Elements */
+  .schedule h2, .location h2, .gallery h2, .wedding-theme h3 {
+    font-size: 1.6rem !important;      
+    letter-spacing: 4px !important;    
+    margin-bottom: 25px !important;    
+  }
+    .reveal-on-scroll {
+     opacity: 0;
+     transform: translateY(20px);
+     animation: fadeInUpSafe 1.2s cubic-bezier(0.215, 0.610, 0.355, 1) forwards !important;
+  }
+  img {
+    max-width: 100% !important;        
+    height: auto !important;          
+  }
+
+  /* 3. Couple Section Row Fix */
+  .couple {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin-bottom: 40px !important;
+  }
+  .person {
+    width: auto !important;
+  }
+  .person img {
+    width: 120px !important;   
+    height: 120px !important;
+  }
+  .eng-name { font-size: 20px !important; margin-top: 10px !important; }
+  .th-name { font-size: 13px !important; margin-top: 4px !important; }
+
+  /* Heart Resizing */
+  .heart {
+    width: 28px !important;       
+    max-width: 28px !important;
+    height: auto !important;
+    font-size: 26px !important;   
+    line-height: 1 !important;
+    transform: translateY(-15px) !important;
+    margin: 0 5px !important;
+  }
+
+  /* 4. เปลี่ยนเป็นระบบจัดแถวละ 3 ไอคอน (2 แถวครบพอดี ไม่ต้องสกรอลล์) */
+  .timeline {
+    display: grid !important;                     /* เปลี่ยนจากแถวยาวเป็นระบบตาราง (Grid) */
+    grid-template-columns: repeat(3, 1fr) !important; /* บังคับแบ่งเป็น 3 คอลัมน์เท่าๆ กัน */
+    gap: 20px 10px !important;                    /* ระยะห่าง (บน-ล่าง 20px / ซ้าย-ขวา 10px) */
+    padding: 10px !important;
+    overflow: hidden !important;                  /* ปิดระบบสกรอลล์แนวนอนทิ้งไปเลย */
+  }
+
+  /* ซ่อนเส้นแนวนอนเดิมทิ้งไปครับ เพราะพอมันตัดเป็น 2 แถว เส้นเดิมจะลอยผ่ากลางไอคอนดูเลอะเทอะ */
+  .timeline::before {
+    display: none !important;
+  }
+
+  .event {
+    width: 100% !important;                       /* ให้ตัวอีเวนต์ขยายพอดีช่องของตัวเอง */
+    min-width: 0 !important;
+    margin: 0 auto !important;
+  }
+
+  .icon-img, .icon {
+    width: 42px !important;                       /* ขยายขนาดไอคอนขึ้นอีกนิดให้จิ้มดูง่ายเต็มตา */
+    height: 42px !important;
+    margin: 0 auto 6px !important;      
+  }
+
+  .time {
+    font-size: 14px !important;                   /* ขนาดเวลาในมือถือ */
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .title {
+    font-size: 11px !important;                   /* ขนาดชื่อพิธีในมือถือ */
+    margin-top: 3px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* 5. Wedding Theme Colours */
+  .color-palette { gap: 10px !important; }
+  .color-item .circle { width: 30px !important; height: 30px !important; }
+
+  /* 6. Gallery Grid */
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important; 
+    gap: 10px !important;              
+  }
+  .gallery-grid img {
+    height: 220px !important; /* ย่อความสูงรูปในแกลเลอรีลงมาในมือถือไม่ให้ยาวเว่อร์ */
+  }
+
+/* ==========================================================================
+     บีบระยะห่างด้านบนสุดของจอ (HERO SECTION) สำหรับมือถือ
+     ========================================================================== */
+  .hero {
+    padding: 40px 20px !important;    /* ลดพื้นที่ว่างบน-ล่างของเซกชันลง */
+  }
+
+  .hero-content {
+    padding-top: 10px !important;    /* ขยับกล่องข้อความทั้งหมดขึ้นไปด้านบน */
+  }
+
+  .divider {
+    margin: 25px auto 40px !important; /* แถม: หดระยะห่างของเส้นขีดใต้ชื่อลงนิดนึง ไม่ให้ทิ้งห่างจากรูปคู่เกินไป */
+  }
+/* บังคับล้างเอฟเฟกต์เก่า แล้วสั่งให้เฟดลอยขึ้นมาทันทีที่เปิดหน้าเว็บบนมือถือ */
+  .reveal-on-scroll, 
+  .fade-up, 
+  .hero-content, 
+  .couple, 
+  .countdown {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUpSafe 1.6s cubic-bezier(0.215, 0.610, 0.355, 1) forwards !important;
+  }
+
+  /* ตั้งเวลาดีเลย์ให้เยื้อง ๆ กันนิดนึง จะได้ทยอยโผล่แบบมีมิติครับ */
+  .couple { animation-delay: 0.5s !important; }
+  .countdown { animation-delay: 0.7s !important; }
+  
+}
+/* ==========================================================================
+   FLOWER FALLING STYLE & KEYFRAMES
+   ========================================================================== */
+
+.flower {
+  position: fixed;
+  top: -20px;                 /* แอบไว้บนขอบจอก่อนร่วง */
+  z-index: 9999;              /* ดันให้อยู่ชั้นบนสุด ลอยเหนือนื้อหาเว็บ */
+  pointer-events: none;       /* สั่งให้แขกจิ้มทะลุดอกไม้ได้ ไม่ไปแย่งคลิกปุ่มในเว็บ */
+  animation: fall linear forwards;
+  opacity: 0.8;               /* ให้ดอกไม้ดูโปร่งแสงละมุนตาเล็กน้อย */
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg); /* สั่งให้ร่วงทะลุพื้นจอ พร้อมหมุน 1 รอบ */
+    opacity: 0;                                  /* ค่อยๆ จางหายไปตอนถึงพื้น */
+  }
+}
+/* ==========================================================================
+     [แก้ไข] จัดระเบียบรูปขยาย Gallery (Lightbox) ไม่ให้ล้นหน้าจอมือถือ
+     ========================================================================== */
+  
+  /* ตัวกล่องพื้นหลังสีดำโปร่งแสงตอนกดขยาย */
+  .lightbox {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.9) !important; /* พื้นหลังดำนวลๆ ดึงรูปให้เด่น */
+    display: none; /* ซ่อนไว้ก่อน จะเปิดเมื่อกดรูปเท่านั้น */
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 16px !important;
+    z-index: 9999 !important; /* ลอยอยู่บนสุดของหน้าจอ */
+  }
+
+  /* บังคับเปิดใช้เมื่อมี Action กดเปิดไอดี */
+  .lightbox:target {
+    display: flex !important;
+  }
+
+  /* ตัวจัดการรูปภาพแนวตั้ง/แนวนอนตอนขยาย (จุดสำคัญที่ช่วยไม่ให้ล้น) */
+  .lightbox img {
+    width: auto !important;          /* ปลดความกว้างตายตัวออก */
+    max-width: 100% !important;     /* ห้ามกว้างเกินขอบจอมือถือ */
+    height: auto !important;
+    max-height: 75vh !important;    /* [ล็อกเป๊ะ] ห้ามสูงเกิน 75% ของความสูงหน้าจอ รูปแนวตั้งจะหดลงมาพอดีตา */
+    object-fit: contain !important; /* ภาพสัดส่วนสมบูรณ์ ไม่เบี้ยว ไม่ยืด */
+    border-radius: 4px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6) !important;
+  }
+
+  /* จัดตำแหน่งและขนาดปุ่มกากบาท (Close) ด้านบนให้ลอยกดง่าย */
+  .lightbox .close-btn {
+    position: absolute !important;
+    top: 5vh !important;            /* ลอยอยู่เหนือตัวรูปพอดี */
+    right: 24px !important;
+    color: #FFFFFF !important;
+    font-size: 44px !important;
+    font-family: Arial, sans-serif !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
+    opacity: 0.8 !important;
+  }
+
+/* คุมขนาดรูปเป็ดน้อยตรงกลางระหว่างรูปคู่เจ้าบ่าวเจ้าสาว */
+.heart .theme-duck-icon {
+  width: 45px !important;       /* ขนาดกำลังน่ารัก ไม่เล็กไม่ใหญ่เกินไป */
+  height: auto !important;
+  display: inline-block;
+  vertical-align: middle;
+  animation: pulse 2s infinite; /* แถม: ใส่เอฟเฟกต์ดุ๊กดิ๊กหัวใจเต้นให้น้องเป็ดน้อยด้วยครับ */
+}
+
+/* เอฟเฟกต์ดุ๊กดิ๊กขยับเบาๆ เพิ่มความน่ารัก */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
