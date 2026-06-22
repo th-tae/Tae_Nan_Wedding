@@ -533,11 +533,18 @@ iframe {
   }
 
   /* 2. Standard Responsive Headers & Elements */
-  .schedule h2, .location h2, .gallery h2, .wedding-theme h3 {
+  .schedule h2, .location h2, .gallery h2{
     font-size: 1.6rem !important;      
     letter-spacing: 4px !important;    
     margin-bottom: 25px !important;    
   }
+
+ .wedding-theme h3 {
+    font-size: 1.1rem !important;      
+    letter-spacing: 4px !important;    
+    margin-bottom: 25px !important;    
+  }
+   
     .reveal-on-scroll {
      opacity: 0;
      transform: translateY(20px);
