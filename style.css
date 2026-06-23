@@ -198,8 +198,10 @@ body {
   font-size: 50px;
   color: #A67C52;
   opacity: 0.7;
-  transform: translateY(-25px);
   letter-spacing: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ==========================================================================
@@ -839,7 +841,8 @@ iframe {
   height: auto !important;
   display: inline-block;
   vertical-align: middle;
-  animation: pulse 2s infinite; 
+  /* เรียกใช้แอนิเมชันดุ๊กดิ๊กเวอร์ชันเสถียร */
+  animation: duckPulse 2s infinite ease-in-out; 
 }
 
 @keyframes pulse {
@@ -856,30 +859,43 @@ iframe {
   }
 }
 /* ==========================================================================
-   RESTORED ANIMATIONS (กู้คืนเอฟเฟกต์รูปพลิก + เป็ดดุ๊กดิ๊กตรงกลาง)
+   SUPER FIX: FORCED ANIMATION & FLIP (ทับไลน์ตัวล็อกบั๊กเก่าล่างสุด)
    ========================================================================== */
 
-/* 1. สั่งให้รูปเจ้าบ่าว-เจ้าสาว Flip พลิกหันหน้าเข้าหากัน */
+/* 1. แก้ปัญหารูปคุณเต้ (ฝั่งขวา) ไม่ยอม Flip พลิกหน้าเข้าหาแฟน */
+.couple .person:last-child img, 
 .couple .person:last-child .flip-img {
-  transform: scaleX(-1); /* พลิกรูปฝั่งขวา (รูปคุณเต้) หันหน้ากลับมาหาคุณแนน */
+  transform: scaleX(-1) !important; /* บังคับพลิกด้านรูปฝั่งขวาทุกกรณีไม่ว่าจะเปิดบนคอมหรือมือถือ */
 }
 
-/* 2. สั่งให้น้องเป็ดตรงกลางขยับเต้นตุบตับเตือนหัวใจ */
-@keyframes pulse {
-  0% { transform: translateY(-25px) scale(1); }
-  50% { transform: translateY(-25px) scale(1.15); } /* ขยายขึ้นนิดนึงให้ดูนุ่มนวล */
-  100% { transform: translateY(-25px) scale(1); }
-}
-
-/* 3. สั่งให้น้องเป็ดขยับบนหน้าจอมือถือ (ระยะความสูงต่างกันเล็กน้อย) */
+/* 2. ปลดล็อกตัวครอบคลาสแม่ (.heart) บนจอมือถือ ไม่ให้ไปล็อกแอนิเมชันรูปเป็ด */
 @media screen and (max-width: 480px) {
-  .heart .theme-duck-icon {
-    animation: pulseMobile 2s infinite !important;
+  .heart {
+    transform: none !important; /* ถอนคำสั่งยึดตรึงตำแหน่งเดิมออก */
+    height: 40px !important;    /* คุมความสูงบล็อกให้สมดุลแทน */
+    margin: 0 10px !important;
   }
 }
 
-@keyframes pulseMobile {
-  0% { transform: translateY(-15px) scale(1) !important; }
-  50% { transform: translateY(-15px) scale(1.15) !important; }
-  100% { transform: translateY(-15px) scale(1) !important; }
+/* 3. สั่งยิงแอนิเมชันตรงเข้าที่ตัวน้องเป็ด (แท็กรูปภาพดุ๊กดิ๊กตรงกลาง) */
+.heart .theme-duck-icon,
+.heart img {
+  width: 45px !important;
+  height: auto !important;
+  display: inline-block !important;
+  /* ยิงแอนิเมชันตัวใหม่ เลิกใช้คำสั่งเก่าที่ตีกัน */
+  animation: finalDuckDance 1.8s infinite ease-in-out !important; 
+}
+
+/* 4. ชุดคำสั่งแอนิเมชันเคลื่อนไหวแบบรวมศูนย์ (ไม่ต้องแยกคอม/มือถือให้สับสน) */
+@keyframes finalDuckDance {
+  0% {
+    transform: translateY(-20px) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.18); /* ขยายตัวเต้นตุบตับ */
+  }
+  100% {
+    transform: translateY(-20px) scale(1);
+  }
 }
