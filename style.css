@@ -855,3 +855,31 @@ iframe {
     100% { transform: translateY(-15px) scale(1) !important; }
   }
 }
+/* ==========================================================================
+   RESTORED ANIMATIONS (กู้คืนเอฟเฟกต์รูปพลิก + เป็ดดุ๊กดิ๊กตรงกลาง)
+   ========================================================================== */
+
+/* 1. สั่งให้รูปเจ้าบ่าว-เจ้าสาว Flip พลิกหันหน้าเข้าหากัน */
+.couple .person:last-child .flip-img {
+  transform: scaleX(-1); /* พลิกรูปฝั่งขวา (รูปคุณเต้) หันหน้ากลับมาหาคุณแนน */
+}
+
+/* 2. สั่งให้น้องเป็ดตรงกลางขยับเต้นตุบตับเตือนหัวใจ */
+@keyframes pulse {
+  0% { transform: translateY(-25px) scale(1); }
+  50% { transform: translateY(-25px) scale(1.15); } /* ขยายขึ้นนิดนึงให้ดูนุ่มนวล */
+  100% { transform: translateY(-25px) scale(1); }
+}
+
+/* 3. สั่งให้น้องเป็ดขยับบนหน้าจอมือถือ (ระยะความสูงต่างกันเล็กน้อย) */
+@media screen and (max-width: 480px) {
+  .heart .theme-duck-icon {
+    animation: pulseMobile 2s infinite !important;
+  }
+}
+
+@keyframes pulseMobile {
+  0% { transform: translateY(-15px) scale(1) !important; }
+  50% { transform: translateY(-15px) scale(1.15) !important; }
+  100% { transform: translateY(-15px) scale(1) !important; }
+}
