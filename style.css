@@ -626,8 +626,30 @@ iframe {
   }
 
   /* 5. Wedding Theme Colours */
-  .color-palette { gap: 10px !important; }
-  .color-item .circle { width: 30px !important; height: 30px !important; }
+.color-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* จัดให้วงกลมกับตัวหนังสืออยู่ตรงกลางแกนเดียวกัน */
+  justify-content: flex-start;
+  width: 40px;        /* ล็อกความกว้างของแต่ละบล็อกให้เท่ากันเป๊ะ เพื่อนไม่เบียดกัน */
+  margin: 1px;       /* เว้นระยะห่างระหว่างบล็อกให้เท่ากัน */
+}
+
+/* ตัววงกลมสี */
+.color-circle {
+  width: 20px !important;  /* ใส่ !important เพื่อบังคับให้เล็กลงชัวร์ ๆ */
+  height: 20px !important; /* ปรับตัวเลขความเล็กได้ตามใจชอบเลยครับ */
+  border-radius: 50% !important;
+  flex-shrink: 0 !important; /* ห้ามมือถือบีบจนวงกลมเบี้ยว */
+}
+
+/* ตัวอักษรคำอธิบายสี */
+.color-label {
+  font-size: 0.85rem;
+  text-align: center;
+  word-wrap: break-word; /* ถ้าคำยาวเกินไปในมือถือ ให้ตัดบรรทัดสวย ๆ ไม่ไปดันวงกลม */
+  line-height: 1.2;
+}
 
   /* 6. Gallery Grid */
   .gallery-grid {
