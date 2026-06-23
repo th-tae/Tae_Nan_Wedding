@@ -77,7 +77,7 @@ font-family: 'Cormorant Garamond', serif !important;
 
 .hero-content .date {
   font-family: 'Cormorant Garamond', serif !important;
-  font-size: 1.3rem !important;
+  font-size: 1.6rem !important;
   font-weight: 600 !important;          
   letter-spacing: 6px !important;       
   color: #5C401B !important;            
@@ -322,7 +322,7 @@ font-family: 'Cormorant Garamond', serif !important;
 }
 
 .wedding-theme h3 {
-  font-size: 1.6rem !important;
+  font-size: 1.2rem !important;
   letter-spacing: 5px !important;
 }
 
@@ -366,7 +366,7 @@ font-family: 'Cormorant Garamond', serif !important;
    SECTION: LOCATION & MAP
    ========================================================================== */
 .location {
-  padding: 50px 20px 120px !important;
+  padding: 50px 20px 50px !important;
   background: #FFFFFF;
   text-align: center;
 }
@@ -388,29 +388,38 @@ iframe {
 .map-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;                  /* เว้นระยะห่างระหว่างไอคอนกับตัวอักษรให้พอดีตา */
   background: #7A5C2E;
   color: #FFFFFF;
   text-decoration: none;
-  padding: 14px 32px;
+  padding: 14px 36px;
   border-radius: 30px;
-  font-size: 0.95rem;
-  letter-spacing: 1px;
-  box-shadow: 0 8px 24px rgba(122, 92, 46, 0.2);
-  transition: all 0.3s ease;
+  
+  /* ✨ จุดเปลี่ยนสำคัญ: อัปเกรดตัวหนังสือให้ลักชู */
+  font-family: 'Cormorant Garamond', serif !important; /* สลับมาใช้ฟอนต์ตัวเอียงสุดหรูของเว็บ */
+  font-style: italic !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 2px;         /* ถ่างช่องไฟตัวอักษรเล็กน้อยให้ดูโมเดิร์น */
+  text-transform: uppercase;   /* ปรับเป็นตัวพิมพ์ใหญ่ทั้งหมดเพิ่มความพรีเมียม */
+  
+  box-shadow: 0 8px 24px rgba(122, 92, 46, 0.15);
+  transition: all 0.4s ease;   /* สั่งให้เวลาเมาส์ชี้แล้วปุ่มมันสมูท */
 }
 
+/* 🔥 เอฟเฟกต์เวลาเมาส์ชี้ (Hover) หรือเวลาคนกดจิ้มในมือถือ */
 .map-btn:hover {
   background: #A67C52;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(122, 92, 46, 0.3);
+  transform: translateY(-4px) scale(1.02); /* ปุ่มจะลอยขึ้นและขยายใหญ่ขึ้นนิดนึงแบบนุ่ม ๆ */
+  box-shadow: 0 14px 32px rgba(122, 92, 46, 0.3); /* เงาจะทอดลึกขึ้น ดูมีมิติเหมือนปุ่มมันลอยออกมา */
+  letter-spacing: 3px;         /* แถม: เวลาชี้แล้วตัวอักษรจะแอบยืดห่างกันนิดนึง ดูล้ำมาก */
 }
 
 /* ==========================================================================
    SECTION: GALLERY & LIGHTBOX
    ========================================================================== */
 .gallery {
-  padding: 50px 20px 120px !important;
+  padding: 50px 20px 50px !important;
   background: #F8F5F0;
   text-align: center;
 }
@@ -419,13 +428,13 @@ iframe {
   max-width: 1200px;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(3, 1fr); /* ล็อกให้คอมพิวเตอร์ขึ้นแถวละ 3 รูป */
   gap: 20px;
 }
 
 .gallery-grid img {
   width: 100%;
-  height: 420px;
+  height: 420px; /* ความสูงของรูปบนหน้าจอคอม */
   object-fit: cover;
   border-radius: 20px;
   transition: .4s;
@@ -528,7 +537,7 @@ iframe {
     line-height: 1.2 !important;
   }
   .hero-content .date {
-    font-size: 1.1rem !important;
+    font-size: 1.5rem !important;
     letter-spacing: 4px !important;
   }
 
@@ -538,13 +547,13 @@ iframe {
     letter-spacing: 4px !important;    
     margin-bottom: 25px !important;    
   }
-
- .wedding-theme h3 {
-    font-size: 1.1rem !important;      
+  
+   .wedding-theme h3 {
+    font-size: 1rem !important;      
     letter-spacing: 4px !important;    
     margin-bottom: 25px !important;    
   }
-   
+  
     .reveal-on-scroll {
      opacity: 0;
      transform: translateY(20px);
@@ -626,7 +635,7 @@ iframe {
   }
 
   /* 5. Wedding Theme Colours */
-.color-item {
+  .color-item {
   display: flex;
   flex-direction: column;
   align-items: center; /* จัดให้วงกลมกับตัวหนังสืออยู่ตรงกลางแกนเดียวกัน */
@@ -652,12 +661,18 @@ iframe {
 }
 
   /* 6. Gallery Grid */
+  /* ดึงพื้นที่ว่างใต้แกลเลอรีรูปภาพในจอมือถือให้กระชับขึ้น */
+  .gallery {
+    padding: 30px 20px 40px !important; /* ลดความเวิ้งว้างใต้รูปภาพ 6 รูปในจอมือถือ */
+  }
   .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important; 
+    grid-template-columns: repeat(2, 1fr) !important; /* เปลี่ยนจาก auto-fit เป็นล็อกแถวละ 2 รูป */
     gap: 10px !important;              
   }
   .gallery-grid img {
-    height: 220px !important; /* ย่อความสูงรูปในแกลเลอรีลงมาในมือถือไม่ให้ยาวเว่อร์ */
+    height: 220px !important; /* ความสูงรูปในจอมือถือที่คุณเต้ชอบ */
+    width: 100% !important;
+    object-fit: cover !important;
   }
 
 /* ==========================================================================
@@ -774,3 +789,7 @@ iframe {
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
 }
+.wedding-footer p {
+     font-size: 0.75rem !important; /* ปรับขนาดฟอนต์ในมือถือลงมานิดนึงให้กระชับขึ้น */
+     line-height: 1.5 !important;   /* เว้นระยะห่างระหว่างสองบรรทัดให้โปร่งสวย */
+   }
