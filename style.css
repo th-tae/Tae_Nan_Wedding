@@ -7,8 +7,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
 
 /* ==========================================================================
-   GLOBAL RESET
+   GLOBAL RESET & VARIABLES
    ========================================================================== */
+:root {
+  --text-color-primary: #4e443c;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -22,7 +26,7 @@ html {
 body {
   background: #F8F5F0;
   font-family: 'Inter', sans-serif;
-  color: #4e443c;
+  color: var(--text-color-primary);
 }
 
 /* ==========================================================================
@@ -40,6 +44,60 @@ body {
   color: #7A5C2E !important;            
   margin-bottom: 40px !important;       
   text-align: center !important;
+}
+
+/* ==========================================================================
+   DESKTOP ANIMATION CONTROL (คุมแอนิเมชันหน้าแรกบนคอมพิวเตอร์)
+   ========================================================================== */
+.hero-content {
+  opacity: 0;
+  transform: translateY(25px);
+  will-change: transform, opacity;
+  animation: fadeInUpDesktop 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUpDesktop {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: transform, opacity;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-content .hero-tagline {
+  animation: fadeInUpDesktop 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-content .names {
+  opacity: 0;
+  animation: fadeInUpDesktop 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+.hero-content .date {
+  opacity: 0;
+  animation: fadeInUpDesktop 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+.hero-content .divider {
+  opacity: 0;
+  animation: fadeInUpDesktop 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+}
+
+.hero-content .couple {
+  opacity: 0;
+  animation: fadeInUpDesktop 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
 }
 
 /* ==========================================================================
@@ -63,12 +121,11 @@ body {
 }
 
 .hero-content .names {
-font-family: 'Cormorant Garamond', serif !important;
-  font-weight: 700 !important;   /* ตัวหนา */
-  font-style: italic !important;  /* ตัวเอียง */
-  
-  font-size: 5rem !important;     /* ขนาดใหญ่เต็มตา (ในคอม) */
-  letter-spacing: 10px !important; /* ระยะห่างกำลังดี ไม่ห่างเกินไปจนหลุดเส้นเอียง */
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 700 !important;   
+  font-style: italic !important;  
+  font-size: 5rem !important;     
+  letter-spacing: 10px !important; 
   color: #F5EFEB !important;            
   text-shadow: 0 4px 15px rgba(122, 92, 46, 0.45), 0 2px 5px rgba(0, 0, 0, 0.35) !important; 
   text-transform: uppercase !important; 
@@ -119,22 +176,21 @@ font-family: 'Cormorant Garamond', serif !important;
 }
 
 .eng-name {
-  font-family: 'Cormorant Garamond', serif !important; /* เปลี่ยนมาใช้ฟอนต์เดียวกับประโยคซึ้งๆ */
-  font-style: italic !important;  /* ทำเป็นตัวเอียงเพิ่มความลักชู */
-  font-weight: 600 !important;   /* ความหนาระดับกำลังดี อ่านง่าย ชัดเจน */
-  
-  font-size: 1.35rem !important;  /* ขยายขนาดให้ทางแขกผู้ใหญ่卧อ่านได้สบายตาขึ้น */
-  letter-spacing: 1px !important;  /* เว้นช่องไฟนิดๆ ไม่ให้ตัวอักษรเบียดกันจนอ่านยาก */
-  color: var(--text-color-primary) !important; /* ใช้สีหลักของเว็บ */
-  margin-bottom: 5px !important;  /* เว้นระยะห่างก่อนถึงชื่อภาษาไทยด้านล่าง */
+  font-family: 'Cormorant Garamond', serif !important;
+  font-style: italic !important;  
+  font-weight: 600 !important;   
+  font-size: 1.35rem !important;  
+  letter-spacing: 1px !important;  
+  color: var(--text-color-primary) !important; 
+  margin-bottom: 5px !important;  
 }
 
 .th-name {
   font-family: 'Poppins', sans-serif !important;
-  font-style: italic !important;  /* ทำเป็นตัวเอียงเพิ่มความลักชู */
-  font-size: 0.85rem !important;  /* ปรับให้ตัวเล็กกว่าชื่ออังกฤษนิดนึง */
-  font-weight: 300 !important;   /* ใช้ตัวบางเพื่อให้ดูมินิมอล */
-  opacity: 0.75 !important;      /* ปรับให้จางลงนิดนึงเพื่อความแพง */
+  font-style: italic !important;  
+  font-size: 0.85rem !important;  
+  font-weight: 300 !important;   
+  opacity: 0.75 !important;      
   letter-spacing: 0.5px !important;
 }
 
@@ -194,20 +250,18 @@ font-family: 'Cormorant Garamond', serif !important;
   color: #8f8276;
 }
 
-/* แต่งคำโปรยด้านบนสุด */
 .hero-tagline {
   font-family: 'Poppins', sans-serif !important;
   font-size: 0.85rem !important;
   font-weight: 300 !important;
-  letter-spacing: 5px !important; /* ถ่างตัวอักษรให้ดูหรูมินิมอล */
-  color: var(--text-color-primary) !important; /* สีขาวนวลโปร่งแสงเล็กน้อย */
-  margin-top: -15px !important;    /* ดันตัวเองขึ้นไปด้านบนเล็กน้อย */
-  margin-bottom: 50px !important; /* [เพิ่มระยะตรงนี้] สั่งผลักตัวชื่อ Tae & Nan ลงไปด้านล่าง */
+  letter-spacing: 5px !important; 
+  color: var(--text-color-primary) !important; 
+  margin-top: -15px !important;    
+  margin-bottom: 50px !important; 
   display: block !important;
   text-transform: uppercase !important;
 }
 
-/* แต่งประโยคซึ้งๆ ด้านล่างเค้าดาวน์ */
 .wedding-quote {
   font-family: 'Cormorant Garamond', serif !important;
   font-style: italic !important;
@@ -215,7 +269,7 @@ font-family: 'Cormorant Garamond', serif !important;
   font-weight: 400 !important;
   letter-spacing: 2px !important;
   color: var(--text-color-primary) !important;
-  margin-top: 40px !important; /* เว้นระยะห่างจากตัวเค้าดาวน์ลงมาหน่อย */
+  margin-top: 40px !important; 
   opacity: 0.85;
 }
 
@@ -223,14 +277,14 @@ font-family: 'Cormorant Garamond', serif !important;
    SECTION: SCHEDULE & TIMELINE
    ========================================================================== */
 .schedule {
-  padding: 50px 20px 30px !important;
+  padding: 50px 20px 10px !important; 
   text-align: center;
   background: #F8F5F0;
 }
 
 .schedule-banner {
   max-width: 1400px;
-  margin: 0 auto 80px;
+  margin: 0 auto 30px; 
   overflow: hidden;
   animation: fadeOnScroll linear forwards;
   animation-timeline: view();
@@ -317,7 +371,7 @@ font-family: 'Cormorant Garamond', serif !important;
    ========================================================================== */
 .wedding-theme {
   text-align: center;
-  padding: 30px 20px 40px !important;
+  padding: 50px 10px 40px !important; 
   background-color: transparent;
 }
 
@@ -339,10 +393,10 @@ font-family: 'Cormorant Garamond', serif !important;
 }
 
 .color-item .circle {
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
@@ -388,38 +442,34 @@ iframe {
 .map-btn {
   display: inline-flex;
   align-items: center;
-  gap: 12px;                  /* เว้นระยะห่างระหว่างไอคอนกับตัวอักษรให้พอดีตา */
+  gap: 12px;                  
   background: #7A5C2E;
   color: #FFFFFF;
   text-decoration: none;
   padding: 14px 36px;
   border-radius: 30px;
-  
-  /* ✨ จุดเปลี่ยนสำคัญ: อัปเกรดตัวหนังสือให้ลักชู */
-  font-family: 'Cormorant Garamond', serif !important; /* สลับมาใช้ฟอนต์ตัวเอียงสุดหรูของเว็บ */
+  font-family: 'Cormorant Garamond', serif !important; 
   font-style: italic !important;
   font-size: 1.1rem !important;
   font-weight: 600 !important;
-  letter-spacing: 2px;         /* ถ่างช่องไฟตัวอักษรเล็กน้อยให้ดูโมเดิร์น */
-  text-transform: uppercase;   /* ปรับเป็นตัวพิมพ์ใหญ่ทั้งหมดเพิ่มความพรีเมียม */
-  
+  letter-spacing: 2px;         
+  text-transform: uppercase;   
   box-shadow: 0 8px 24px rgba(122, 92, 46, 0.15);
-  transition: all 0.4s ease;   /* สั่งให้เวลาเมาส์ชี้แล้วปุ่มมันสมูท */
+  transition: all 0.4s ease;   
 }
 
-/* 🔥 เอฟเฟกต์เวลาเมาส์ชี้ (Hover) หรือเวลาคนกดจิ้มในมือถือ */
 .map-btn:hover {
   background: #A67C52;
-  transform: translateY(-4px) scale(1.02); /* ปุ่มจะลอยขึ้นและขยายใหญ่ขึ้นนิดนึงแบบนุ่ม ๆ */
-  box-shadow: 0 14px 32px rgba(122, 92, 46, 0.3); /* เงาจะทอดลึกขึ้น ดูมีมิติเหมือนปุ่มมันลอยออกมา */
-  letter-spacing: 3px;         /* แถม: เวลาชี้แล้วตัวอักษรจะแอบยืดห่างกันนิดนึง ดูล้ำมาก */
+  transform: translateY(-4px) scale(1.02); 
+  box-shadow: 0 14px 32px rgba(122, 92, 46, 0.3); 
+  letter-spacing: 3px;         
 }
 
 /* ==========================================================================
    SECTION: GALLERY & LIGHTBOX
    ========================================================================== */
 .gallery {
-  padding: 50px 20px 50px !important;
+  padding: 15px 20px 50px !important;
   background: #F8F5F0;
   text-align: center;
 }
@@ -428,13 +478,13 @@ iframe {
   max-width: 1200px;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* ล็อกให้คอมพิวเตอร์ขึ้นแถวละ 3 รูป */
+  grid-template-columns: repeat(3, 1fr); 
   gap: 20px;
 }
 
 .gallery-grid img {
   width: 100%;
-  height: 420px; /* ความสูงของรูปบนหน้าจอคอม */
+  height: 420px; 
   object-fit: cover;
   border-radius: 20px;
   transition: .4s;
@@ -495,6 +545,18 @@ iframe {
   to { opacity: 1; transform: translateY(0); }
 }
 
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s cubic-bezier(0.215, 0.610, 0.355, 1), 
+              transform 1.2s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.fade-up.active {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
 /* ==========================================================================
    SECTION: FOOTER
    ========================================================================== */
@@ -526,6 +588,25 @@ iframe {
 }
 
 /* ==========================================================================
+   MINIMAL SECTION DIVIDER (เส้นกั้นแบ่งโซนสไตล์ลักชู)
+   ========================================================================== */
+.section-divider {
+  width: 80px;                
+  height: 1px;                
+  background-color: #D8C3A5;  
+  border: none;
+  margin: 40px auto;          
+  opacity: 0.6;               
+}
+
+@media screen and (max-width: 480px) {
+  .section-divider {
+    margin: 20px auto;        
+    width: 100px;
+  }
+}
+
+/* ==========================================================================
    RESPONSIVE LAYOUT (IPHONE & MOBILE SMARTPHONES)
    ========================================================================== */
 @media screen and (max-width: 480px) {
@@ -542,7 +623,7 @@ iframe {
   }
 
   /* 2. Standard Responsive Headers & Elements */
-  .schedule h2, .location h2, .gallery h2{
+  .schedule h2, .location h2{
     font-size: 1.6rem !important;      
     letter-spacing: 4px !important;    
     margin-bottom: 25px !important;    
@@ -551,13 +632,25 @@ iframe {
    .wedding-theme h3 {
     font-size: 1rem !important;      
     letter-spacing: 4px !important;    
-    margin-bottom: 25px !important;    
+    margin-bottom: 15px !important;   
+  }
+
+  .schedule {
+    padding: 30px 20px 10px !important;
+  }
+  .wedding-theme {
+    padding: 30px 20px 35px !important;
+  }
+  .gallery h2 {
+    font-size: 1.6rem !important;      
+    letter-spacing: 4px !important;        
+    margin-bottom: 20px !important; 
   }
   
-    .reveal-on-scroll {
+  .reveal-on-scroll {
      opacity: 0;
-     transform: translateY(20px);
-     animation: fadeInUpSafe 1.2s cubic-bezier(0.215, 0.610, 0.355, 1) forwards !important;
+     transform: translateY(30px); 
+     animation: fadeInUpSafe 2.0s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
   }
   img {
     max-width: 100% !important;        
@@ -596,200 +689,169 @@ iframe {
     margin: 0 5px !important;
   }
 
-  /* 4. เปลี่ยนเป็นระบบจัดแถวละ 3 ไอคอน (2 แถวครบพอดี ไม่ต้องสกรอลล์) */
+  /* 4. Timeline Grid */
   .timeline {
-    display: grid !important;                     /* เปลี่ยนจากแถวยาวเป็นระบบตาราง (Grid) */
-    grid-template-columns: repeat(3, 1fr) !important; /* บังคับแบ่งเป็น 3 คอลัมน์เท่าๆ กัน */
-    gap: 20px 10px !important;                    /* ระยะห่าง (บน-ล่าง 20px / ซ้าย-ขวา 10px) */
+    display: grid !important;                                     
+    grid-template-columns: repeat(3, 1fr) !important; 
+    gap: 20px 10px !important;                                    
     padding: 10px !important;
-    overflow: hidden !important;                  /* ปิดระบบสกรอลล์แนวนอนทิ้งไปเลย */
+    overflow: hidden !important;                                  
   }
 
-  /* ซ่อนเส้นแนวนอนเดิมทิ้งไปครับ เพราะพอมันตัดเป็น 2 แถว เส้นเดิมจะลอยผ่ากลางไอคอนดูเลอะเทอะ */
   .timeline::before {
     display: none !important;
   }
 
   .event {
-    width: 100% !important;                       /* ให้ตัวอีเวนต์ขยายพอดีช่องของตัวเอง */
+    width: 100% !important;                                       
     min-width: 0 !important;
     margin: 0 auto !important;
   }
 
   .icon-img, .icon {
-    width: 42px !important;                       /* ขยายขนาดไอคอนขึ้นอีกนิดให้จิ้มดูง่ายเต็มตา */
+    width: 42px !important;                                       
     height: 42px !important;
     margin: 0 auto 6px !important;      
   }
 
   .time {
-    font-size: 14px !important;                   /* ขนาดเวลาในมือถือ */
+    font-size: 14px !important;                                   
     font-weight: 600 !important;
     letter-spacing: 0.5px !important;
   }
 
   .title {
-    font-size: 11px !important;                   /* ขนาดชื่อพิธีในมือถือ */
+    font-size: 11px !important;                                   
     margin-top: 3px !important;
     line-height: 1.2 !important;
   }
 
-  /* 5. Wedding Theme Colours */
+  /* 5. Wedding Theme Colours Fix */
+  .color-palette {
+    gap: 15px !important;
+  }
   .color-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* จัดให้วงกลมกับตัวหนังสืออยู่ตรงกลางแกนเดียวกัน */
-  justify-content: flex-start;
-  width: 40px;        /* ล็อกความกว้างของแต่ละบล็อกให้เท่ากันเป๊ะ เพื่อนไม่เบียดกัน */
-  margin: 1px;       /* เว้นระยะห่างระหว่างบล็อกให้เท่ากัน */
-}
-
-/* ตัววงกลมสี */
-.color-circle {
-  width: 20px !important;  /* ใส่ !important เพื่อบังคับให้เล็กลงชัวร์ ๆ */
-  height: 20px !important; /* ปรับตัวเลขความเล็กได้ตามใจชอบเลยครับ */
-  border-radius: 50% !important;
-  flex-shrink: 0 !important; /* ห้ามมือถือบีบจนวงกลมเบี้ยว */
-}
-
-/* ตัวอักษรคำอธิบายสี */
-.color-label {
-  font-size: 0.85rem;
-  text-align: center;
-  word-wrap: break-word; /* ถ้าคำยาวเกินไปในมือถือ ให้ตัดบรรทัดสวย ๆ ไม่ไปดันวงกลม */
-  line-height: 1.2;
-}
+    width: auto !important;        
+  }
+  .color-item .circle {
+    width: 25px !important;  
+    height: 25px !important; 
+    margin-bottom: 10px !important;
+  }
 
   /* 6. Gallery Grid */
-  /* ดึงพื้นที่ว่างใต้แกลเลอรีรูปภาพในจอมือถือให้กระชับขึ้น */
   .gallery {
-    padding: 30px 20px 40px !important; /* ลดความเวิ้งว้างใต้รูปภาพ 6 รูปในจอมือถือ */
+    padding: 10px 20px 40px !important; 
   }
   .gallery-grid {
-    grid-template-columns: repeat(2, 1fr) !important; /* เปลี่ยนจาก auto-fit เป็นล็อกแถวละ 2 รูป */
+    grid-template-columns: repeat(2, 1fr) !important; 
     gap: 10px !important;              
   }
   .gallery-grid img {
-    height: 220px !important; /* ความสูงรูปในจอมือถือที่คุณเต้ชอบ */
+    height: 220px !important; 
     width: 100% !important;
     object-fit: cover !important;
   }
-
-/* ==========================================================================
-     บีบระยะห่างด้านบนสุดของจอ (HERO SECTION) สำหรับมือถือ
-     ========================================================================== */
   .hero {
-    padding: 40px 20px !important;    /* ลดพื้นที่ว่างบน-ล่างของเซกชันลง */
+    padding-bottom: 10px !important;
+  }
+  .wedding-quote {
+    margin-bottom: 5px !important;
+  }
+
+  .hero {
+    padding: 30px 15px !important;    
   }
 
   .hero-content {
-    padding-top: 10px !important;    /* ขยับกล่องข้อความทั้งหมดขึ้นไปด้านบน */
+    padding-top: 10px !important;    
+    opacity: 0;
+    transform: translateY(20px);
+    will-change: transform, opacity; 
+    animation: fadeInUpSafe 2.0s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
   }
 
   .divider {
-    margin: 25px auto 40px !important; /* แถม: หดระยะห่างของเส้นขีดใต้ชื่อลงนิดนึง ไม่ให้ทิ้งห่างจากรูปคู่เกินไป */
+    margin: 20px auto 35px !important; 
   }
-/* บังคับล้างเอฟเฟกต์เก่า แล้วสั่งให้เฟดลอยขึ้นมาทันทีที่เปิดหน้าเว็บบนมือถือ */
-  .reveal-on-scroll, 
-  .fade-up, 
-  .hero-content, 
-  .couple, 
-  .countdown {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUpSafe 1.6s cubic-bezier(0.215, 0.610, 0.355, 1) forwards !important;
-  }
-
-  /* ตั้งเวลาดีเลย์ให้เยื้อง ๆ กันนิดนึง จะได้ทยอยโผล่แบบมีมิติครับ */
-  .couple { animation-delay: 0.5s !important; }
-  .countdown { animation-delay: 0.7s !important; }
-  
 }
+
 /* ==========================================================================
    FLOWER FALLING STYLE & KEYFRAMES
    ========================================================================== */
-
 .flower {
   position: fixed;
-  top: -20px;                 /* แอบไว้บนขอบจอก่อนร่วง */
-  z-index: 9999;              /* ดันให้อยู่ชั้นบนสุด ลอยเหนือนื้อหาเว็บ */
-  pointer-events: none;       /* สั่งให้แขกจิ้มทะลุดอกไม้ได้ ไม่ไปแย่งคลิกปุ่มในเว็บ */
+  top: -20px;                 
+  z-index: 9999;              
+  pointer-events: none;       
   animation: fall linear forwards;
-  opacity: 0.8;               /* ให้ดอกไม้ดูโปร่งแสงละมุนตาเล็กน้อย */
+  opacity: 0.8;               
 }
 
 @keyframes fall {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  100% {
-    transform: translateY(110vh) rotate(360deg); /* สั่งให้ร่วงทะลุพื้นจอ พร้อมหมุน 1 รอบ */
-    opacity: 0;                                  /* ค่อยๆ จางหายไปตอนถึงพื้น */
-  }
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
 }
+
 /* ==========================================================================
-     [แก้ไข] จัดระเบียบรูปขยาย Gallery (Lightbox) ไม่ให้ล้นหน้าจอมือถือ
-     ========================================================================== */
-  
-  /* ตัวกล่องพื้นหลังสีดำโปร่งแสงตอนกดขยาย */
-  .lightbox {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    background: rgba(0, 0, 0, 0.9) !important; /* พื้นหลังดำนวลๆ ดึงรูปให้เด่น */
-    display: none; /* ซ่อนไว้ก่อน จะเปิดเมื่อกดรูปเท่านั้น */
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 16px !important;
-    z-index: 9999 !important; /* ลอยอยู่บนสุดของหน้าจอ */
-  }
+   LIGHTBOX OPTIMIZATION
+   ========================================================================== */
+.lightbox {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(0, 0, 0, 0.9) !important; 
+  display: none; 
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 16px !important;
+  z-index: 9999 !important; 
+}
 
-  /* บังคับเปิดใช้เมื่อมี Action กดเปิดไอดี */
-  .lightbox:target {
-    display: flex !important;
-  }
+.lightbox:target { display: flex !important; }
 
-  /* ตัวจัดการรูปภาพแนวตั้ง/แนวนอนตอนขยาย (จุดสำคัญที่ช่วยไม่ให้ล้น) */
-  .lightbox img {
-    width: auto !important;          /* ปลดความกว้างตายตัวออก */
-    max-width: 100% !important;     /* ห้ามกว้างเกินขอบจอมือถือ */
-    height: auto !important;
-    max-height: 75vh !important;    /* [ล็อกเป๊ะ] ห้ามสูงเกิน 75% ของความสูงหน้าจอ รูปแนวตั้งจะหดลงมาพอดีตา */
-    object-fit: contain !important; /* ภาพสัดส่วนสมบูรณ์ ไม่เบี้ยว ไม่ยืด */
-    border-radius: 4px !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6) !important;
-  }
+.lightbox img {
+  width: auto !important;          
+  max-width: 100% !important;     
+  height: auto !important;
+  max-height: 75vh !important;    
+  object-fit: contain !important; 
+  border-radius: 4px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6) !important;
+}
 
-  /* จัดตำแหน่งและขนาดปุ่มกากบาท (Close) ด้านบนให้ลอยกดง่าย */
-  .lightbox .close-btn {
-    position: absolute !important;
-    top: 5vh !important;            /* ลอยอยู่เหนือตัวรูปพอดี */
-    right: 24px !important;
-    color: #FFFFFF !important;
-    font-size: 44px !important;
-    font-family: Arial, sans-serif !important;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
-    opacity: 0.8 !important;
-  }
+.lightbox .close-btn {
+  position: absolute !important;
+  top: 5vh !important;            
+  right: 24px !important;
+  color: #FFFFFF !important;
+  font-size: 44px !important;
+  font-family: Arial, sans-serif !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
+  opacity: 0.8 !important;
+}
 
-/* คุมขนาดรูปเป็ดน้อยตรงกลางระหว่างรูปคู่เจ้าบ่าวเจ้าสาว */
+/* คุมขนาดรูปเป็ดน้อยตรงกลาง */
 .heart .theme-duck-icon {
-  width: 45px !important;       /* ขนาดกำลังน่ารัก ไม่เล็กไม่ใหญ่เกินไป */
+  width: 45px !important;       
   height: auto !important;
   display: inline-block;
   vertical-align: middle;
-  animation: pulse 2s infinite; /* แถม: ใส่เอฟเฟกต์ดุ๊กดิ๊กหัวใจเต้นให้น้องเป็ดน้อยด้วยครับ */
+  animation: pulse 2s infinite; 
 }
 
-/* เอฟเฟกต์ดุ๊กดิ๊กขยับเบาๆ เพิ่มความน่ารัก */
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+  0% { transform: translateY(-25px) scale(1); }
+  50% { transform: translateY(-25px) scale(1.1); }
+  100% { transform: translateY(-25px) scale(1); }
 }
-.wedding-footer p {
-     font-size: 0.75rem !important; /* ปรับขนาดฟอนต์ในมือถือลงมานิดนึงให้กระชับขึ้น */
-     line-height: 1.5 !important;   /* เว้นระยะห่างระหว่างสองบรรทัดให้โปร่งสวย */
-   }
+
+@media screen and (max-width: 480px) {
+  @keyframes pulse {
+    0% { transform: translateY(-15px) scale(1) !important; }
+    50% { transform: translateY(-15px) scale(1.1) !important; }
+    100% { transform: translateY(-15px) scale(1) !important; }
+  }
+}
