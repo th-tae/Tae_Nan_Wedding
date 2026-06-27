@@ -863,9 +863,15 @@ iframe {
    ========================================================================== */
 
 /* 1. แก้ปัญหารูปคุณเต้ (ฝั่งขวา) ไม่ยอม Flip พลิกหน้าเข้าหาแฟน */
+.couple .person:first-child img, 
+.couple .person:first-child .flip-img {
+  transform: scaleX(-1) !important; /* พลิกรูปคนแรก (คุณแนน) หันไปทางขวา */
+}
+
+/* แถม: เคลียร์รูปคุณเต้ (คนสุดท้าย) ให้กลับเป็นปกติ ไม่โดนสลับฝั่งซ้อน */
 .couple .person:last-child img, 
 .couple .person:last-child .flip-img {
-  transform: scaleX(-1) !important; /* บังคับพลิกด้านรูปฝั่งขวาทุกกรณีไม่ว่าจะเปิดบนคอมหรือมือถือ */
+  transform: scaleX(-1) !important;
 }
 
 /* 2. ปลดล็อกตัวครอบคลาสแม่ (.heart) บนจอมือถือ ไม่ให้ไปล็อกแอนิเมชันรูปเป็ด */
